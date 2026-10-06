@@ -116,7 +116,8 @@
     var b = d.createElement('button');
     b.type = 'button';
     b.className = 'btn btn--solid';
-    b.innerHTML = '<span class="tri"></span>להפעלת הסרט';
+    b.innerHTML = '<span class="tri"></span>';
+    b.appendChild(d.createTextNode(s.getAttribute('data-play')));
     g.appendChild(p);
     g.appendChild(b);
     s.appendChild(g);

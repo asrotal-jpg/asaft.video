@@ -43,7 +43,7 @@ function buildSite() {
   var WORKS = [
     {
       slug: 'beeinayim-atzumot', group: 'works', title: 'בעיניים עצומות', img: IMG.beeinayim, yt: 'SEmAk0paDJo',
-      length: '8:34', genre: 'עלילתי', warn: ['מיניות', 'אלימות מרומזות'], role: 'במאי, תסריטאי, עורך ואפקטים מיוחדים',
+      length: '8:34', genre: 'עלילתי', warn: ['מיניות', 'פגיעה עצמית מרומזות'], role: 'במאי, תסריטאי, עורך ואפקטים מיוחדים',
       cap: [['8:34', 1], ['עלילתי']],
       about: ['״בעיניים עצומות״ היה ההתנסות הראשונה שלי בכתיבת תסריט, בימוי ועריכת סרט. ניסיתי ליצור גיבור מעורר הזדהות אך פגום, שסיפורו מסופר עם שפה צורנית מאוד מאופיינת ועריכה שלא מאפשרת לצופה להישאר אדיש.'],
       challenges: ['2.5 ימי צילום בלבד (דרישות האוניברסיטה)', 'השתלטות על סט עם הרבה אנשי צוות', 'שינוי תסריט באמצעות עריכה']
@@ -56,7 +56,7 @@ function buildSite() {
       challenges: ['השתלטות על חומר גלם רב מאוד בחדר העריכה', 'פיצוח נראטיב הסרט באמצעות עריכה', 'בימוי של שחקנית לא מקצועית']
     },
     {
-      slug: 'him', group: 'works', title: 'Him', img: IMG.him, prev: VID.him, video: VID.himFull, still: VID.himStill,
+      slug: 'him', group: 'works', title: 'Him', noun: 'סרטון', img: IMG.him, prev: VID.him, video: VID.himFull, still: VID.himStill,
       length: '2:46', genre: 'וידאו-ארט', warn: ['עירום', 'אורות מהבהבים'], role: 'במאי, צלם, תאורן, עורך',
       cap: [['2:46', 1], ['וידאו-ארט']],
       about: ['וידאו-ארט קצר ומוזר שמספר את סיפורו של יצור שנתקע בחלל שזר לו ומנסה למצוא את דרכו החוצה.'],
@@ -504,7 +504,8 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
     var b = d.createElement('button');
     b.type = 'button';
     b.className = 'btn btn--solid';
-    b.innerHTML = '<span class="tri"></span>להפעלת הסרט';
+    b.innerHTML = '<span class="tri"></span>';
+    b.appendChild(d.createTextNode(s.getAttribute('data-play')));
     g.appendChild(p);
     g.appendChild(b);
     s.appendChild(g);
@@ -793,12 +794,13 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
     var desc = (w.about[0] || '').replace(/\s+/g, ' ');
     if (desc.length > 155) desc = desc.slice(0, 152).replace(/\s\S*$/, '') + '…';
 
-    var gate = w.warn ? ' data-gate="' + esc('הסרט מכיל ' + warnPhrase(w.warn) + '.') + '"' : '';
+    var noun = w.noun || 'סרט';
+    var gate = w.warn ? ' data-gate="' + esc('ה' + noun + ' מכיל ' + warnPhrase(w.warn) + '.') + '" data-play="' + esc('להפעלת ה' + noun) + '"' : '';
     var screen = '';
     if (w.yt) {
       screen = '<div class="screen" data-yt="' + w.yt + '" data-title="' + esc(w.title) + '"' + gate + '>' +
         '<img src="' + ytImg(w.yt) + '" alt="" loading="lazy" decoding="async">' +
-        '<a class="screen-play" href="https://youtu.be/' + w.yt + '" target="_blank" rel="noopener" aria-label="' + esc('הפעלת הסרט ' + w.title) + '"><span></span></a>' +
+        '<a class="screen-play" href="https://youtu.be/' + w.yt + '" target="_blank" rel="noopener" aria-label="' + esc('הפעלת ה' + noun + ' ' + w.title) + '"><span></span></a>' +
         '</div>' +
         '<div class="screen-bar"><span>' + esc(w.title) + (w.length ? ' <span class="tc">' + w.length + '</span>' : '') + '</span>' +
         '<a href="https://youtu.be/' + w.yt + '" target="_blank" rel="noopener">לצפייה ביוטיוב' + ICON_EXT + '</a></div>';
