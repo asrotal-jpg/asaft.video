@@ -116,7 +116,7 @@
     var b = d.createElement('button');
     b.type = 'button';
     b.className = 'btn btn--solid';
-    b.innerHTML = '<span class="tri"></span>להפעלת הסרטון';
+    b.innerHTML = '<span class="tri"></span>להפעלת הסרט';
     g.appendChild(p);
     g.appendChild(b);
     s.appendChild(g);
@@ -182,7 +182,7 @@
       if (veil) {
         var g = d.createElement('div');
         g.className = 'gate';
-        g.innerHTML = '<p>פרסומת לחנות מין. תוכן בוטה (ללא עירום).</p><button type="button" class="btn btn--solid"><span class="tri"></span>להפעלת הסרטון</button>';
+        g.innerHTML = '<p>פרסומת לחנות מין עם רמיזות מיניות.</p><button type="button" class="btn btn--solid"><span class="tri"></span>להפעלת הסרטון</button>';
         g.querySelector('button').addEventListener('click', function () { veil.classList.remove('veiled'); show(a); });
         scr.appendChild(g);
       } else {

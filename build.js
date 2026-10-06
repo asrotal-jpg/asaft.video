@@ -43,7 +43,7 @@ function buildSite() {
   var WORKS = [
     {
       slug: 'beeinayim-atzumot', group: 'works', title: 'בעיניים עצומות', img: IMG.beeinayim, yt: 'SEmAk0paDJo',
-      length: '8:34', genre: 'עלילתי', warn: ['תוכן בוטה (ללא עירום)'], role: 'במאי, תסריטאי, עורך ואפקטים מיוחדים',
+      length: '8:34', genre: 'עלילתי', warn: ['מיניות', 'אלימות מרומזות'], role: 'במאי, תסריטאי, עורך ואפקטים מיוחדים',
       cap: [['8:34', 1], ['עלילתי']],
       about: ['״בעיניים עצומות״ היה ההתנסות הראשונה שלי בכתיבת תסריט, בימוי ועריכת סרט. ניסיתי ליצור גיבור מעורר הזדהות אך פגום, שסיפורו מסופר עם שפה צורנית מאוד מאופיינת ועריכה שלא מאפשרת לצופה להישאר אדיש.'],
       challenges: ['2.5 ימי צילום בלבד (דרישות האוניברסיטה)', 'השתלטות על סט עם הרבה אנשי צוות', 'שינוי תסריט באמצעות עריכה']
@@ -504,7 +504,7 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
     var b = d.createElement('button');
     b.type = 'button';
     b.className = 'btn btn--solid';
-    b.innerHTML = '<span class="tri"></span>להפעלת הסרטון';
+    b.innerHTML = '<span class="tri"></span>להפעלת הסרט';
     g.appendChild(p);
     g.appendChild(b);
     s.appendChild(g);
@@ -570,7 +570,7 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
       if (veil) {
         var g = d.createElement('div');
         g.className = 'gate';
-        g.innerHTML = '<p>פרסומת לחנות מין. תוכן בוטה (ללא עירום).</p><button type="button" class="btn btn--solid"><span class="tri"></span>להפעלת הסרטון</button>';
+        g.innerHTML = '<p>פרסומת לחנות מין עם רמיזות מיניות.</p><button type="button" class="btn btn--solid"><span class="tri"></span>להפעלת הסרטון</button>';
         g.querySelector('button').addEventListener('click', function () { veil.classList.remove('veiled'); show(a); });
         scr.appendChild(g);
       } else {
@@ -655,7 +655,7 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
       '<div class="card-media">' +
       '<img src="' + poster(w.img, 540) + '" alt="' + esc('פוסטר: ' + w.title) + '" width="540" height="960" loading="lazy" decoding="async"' + vt + '>' +
       (w.prev ? '<video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>' : '') +
-      (w.warn ? '<span class="badge">' + esc('אזהרת ' + warnPhrase(w.warn)) + '</span>' : '') +
+      (w.warn ? '<span class="badge">' + esc('אזהרה: ' + warnPhrase(w.warn)) + '</span>' : '') +
       '<div class="card-over"><p>' + esc(w.hover || w.role) + '</p><span class="card-go"><span class="tri"></span>לעמוד העבודה</span></div>' +
       '</div>' +
       '<div class="card-cap"><h3>' + esc(w.title) + '</h3><p>' + capLine(w) + '</p></div>' +
@@ -665,7 +665,7 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
   function adCard(a) {
     return '<a class="card' + (a.sensitive ? ' card--sensitive' : '') + '" href="https://youtu.be/' + a.yt + '" target="_blank" rel="noopener" data-ad="' + a.slug + '" data-group="ads" data-yt="' + a.yt + '" data-title="' + esc(a.title) + '" data-desc="' + esc(a.desc) + '"' + (a.sensitive ? ' data-sensitive' : '') + '>' +
       '<div class="card-media"><img src="' + ytImg(a.yt, a.q) + '" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="play-dot" aria-hidden="true"></span>' +
-      (a.sensitive ? '<span class="veil" aria-hidden="true"><b>פרסומת לחנות מין</b><span>תוכן בוטה (ללא עירום). לחצו כדי להציג</span></span>' : '') + '</div>' +
+      (a.sensitive ? '<span class="veil" aria-hidden="true"><b>פרסומת לחנות מין</b><span>רמיזות מיניות. לחצו כדי להציג</span></span>' : '') + '</div>' +
       '<div class="card-cap"><h3>' + esc(a.title) + '</h3><p><span>' + esc(a.kind) + '</span></p></div>' +
       '</a>';
   }
@@ -793,12 +793,12 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
     var desc = (w.about[0] || '').replace(/\s+/g, ' ');
     if (desc.length > 155) desc = desc.slice(0, 152).replace(/\s\S*$/, '') + '…';
 
-    var gate = w.warn ? ' data-gate="' + esc('הסרטון מכיל ' + warnPhrase(w.warn) + '.') + '"' : '';
+    var gate = w.warn ? ' data-gate="' + esc('הסרט מכיל ' + warnPhrase(w.warn) + '.') + '"' : '';
     var screen = '';
     if (w.yt) {
       screen = '<div class="screen" data-yt="' + w.yt + '" data-title="' + esc(w.title) + '"' + gate + '>' +
         '<img src="' + ytImg(w.yt) + '" alt="" loading="lazy" decoding="async">' +
-        '<a class="screen-play" href="https://youtu.be/' + w.yt + '" target="_blank" rel="noopener" aria-label="' + esc('הפעלת הסרטון ' + w.title) + '"><span></span></a>' +
+        '<a class="screen-play" href="https://youtu.be/' + w.yt + '" target="_blank" rel="noopener" aria-label="' + esc('הפעלת הסרט ' + w.title) + '"><span></span></a>' +
         '</div>' +
         '<div class="screen-bar"><span>' + esc(w.title) + (w.length ? ' <span class="tc">' + w.length + '</span>' : '') + '</span>' +
         '<a href="https://youtu.be/' + w.yt + '" target="_blank" rel="noopener">לצפייה ביוטיוב' + ICON_EXT + '</a></div>';
@@ -833,7 +833,7 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
             (facts.length ? '<dl class="facts">' + facts.map(function (f) {
               return '<div><dt>' + f[0] + '</dt><dd' + (f[2] ? ' class="tc"' : '') + '>' + esc(f[1]) + '</dd></div>';
             }).join('') + '</dl>' : '') +
-            (w.warn ? '<p class="warn">' + ICON_WARN + esc('אזהרת ' + warnPhrase(w.warn)) + '</p>' : '') +
+            (w.warn ? '<p class="warn">' + ICON_WARN + esc('אזהרה: ' + warnPhrase(w.warn)) + '</p>' : '') +
             (hasScreen ? '<div class="actions"><a class="btn btn--solid" href="#watch" data-watch><span class="tri"></span>צפייה</a></div>' : '') +
           '</div>' +
           '<img class="title-poster" src="' + poster(w.img, 540) + '" alt="' + esc('פוסטר: ' + w.title) + '" width="540" height="960" style="view-transition-name:p-' + w.slug + '">' +
