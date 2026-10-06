@@ -43,7 +43,7 @@ function buildSite() {
   var WORKS = [
     {
       slug: 'beeinayim-atzumot', group: 'works', title: 'בעיניים עצומות', img: IMG.beeinayim, yt: 'SEmAk0paDJo',
-      length: '8:34', genre: 'עלילתי', warn: ['תוכן בוטה'], role: 'במאי, תסריטאי, עורך ואפקטים מיוחדים',
+      length: '8:34', genre: 'עלילתי', warn: ['תוכן בוטה (ללא עירום)'], role: 'במאי, תסריטאי, עורך ואפקטים מיוחדים',
       cap: [['8:34', 1], ['עלילתי']],
       about: ['״בעיניים עצומות״ היה ההתנסות הראשונה שלי בכתיבת תסריט, בימוי ועריכת סרט. ניסיתי ליצור גיבור מעורר הזדהות אך פגום, שסיפורו מסופר עם שפה צורנית מאוד מאופיינת ועריכה שלא מאפשרת לצופה להישאר אדיש.'],
       challenges: ['2.5 ימי צילום בלבד (דרישות האוניברסיטה)', 'השתלטות על סט עם הרבה אנשי צוות', 'שינוי תסריט באמצעות עריכה']
@@ -107,11 +107,11 @@ function buildSite() {
   ];
 
   var ADS = [
+    { slug: 'ad-rap-cut', yt: 'kz59Rgj0rN4', title: 'ווק טו ווק (ראפ קאט)', kind: 'תסריט לתחרות הפרסומות של הרשת', desc: 'כתיבת תסריט לפרסומת במסגרת תחרות פרסומות לרשת המזון ״ווק טו ווק״ (התחרות בוטלה לפני שהספקנו להגיש).' },
+    { slug: 'ad-shavot', yt: 'JvSFg-V37B4', q: 'hqdefault', title: 'בונים עתיד עם שוות', kind: 'פרסומת לעמותת ״שוות״', desc: 'פרסומת לעמותה ללא מטרות רווח ״שוות״. בימוי וכתיבה במסגרת הלימודים בבצפר.' },
     { slug: 'ad-taamim', yt: 'eyJlZaUopFs', sensitive: 1, title: 'טעמים', kind: 'סדרת פרסומות לחנות מין', desc: 'מתוך סדרת פרסומות לחנות מין (עסק קטן). בימוי וכתיבה במסגרת הלימודים בבצפר.' },
     { slug: 'ad-lehagdil', yt: 'lSKNkcfPf6c', sensitive: 1, title: 'להגדיל?', kind: 'סדרת פרסומות לחנות מין', desc: 'מתוך סדרת פרסומות לחנות מין (עסק קטן). בימוי וכתיבה במסגרת הלימודים בבצפר.' },
-    { slug: 'ad-ani-rotze', yt: 'dDx8KgjB1nw', sensitive: 1, title: 'אני רוצה...', kind: 'סדרת פרסומות לחנות מין', desc: 'מתוך סדרת פרסומות לחנות מין (עסק קטן). בימוי וכתיבה במסגרת הלימודים בבצפר.' },
-    { slug: 'ad-shavot', yt: 'JvSFg-V37B4', q: 'hqdefault', title: 'בונים עתיד עם שוות', kind: 'פרסומת לעמותת ״שוות״', desc: 'פרסומת לעמותה ללא מטרות רווח ״שוות״. בימוי וכתיבה במסגרת הלימודים בבצפר.' },
-    { slug: 'ad-rap-cut', yt: 'kz59Rgj0rN4', title: 'ווק טו ווק (ראפ קאט)', kind: 'תסריט לתחרות הפרסומות של הרשת', desc: 'כתיבת תסריט לפרסומת במסגרת תחרות פרסומות לרשת המזון ״ווק טו ווק״ (התחרות בוטלה לפני שהספקנו להגיש).' }
+    { slug: 'ad-ani-rotze', yt: 'dDx8KgjB1nw', sensitive: 1, title: 'אני רוצה...', kind: 'סדרת פרסומות לחנות מין', desc: 'מתוך סדרת פרסומות לחנות מין (עסק קטן). בימוי וכתיבה במסגרת הלימודים בבצפר.' }
   ];
 
   var CREDITS = [
@@ -570,7 +570,7 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
       if (veil) {
         var g = d.createElement('div');
         g.className = 'gate';
-        g.innerHTML = '<p>פרסומת לחנות מין. תוכן בוטה.</p><button type="button" class="btn btn--solid"><span class="tri"></span>להפעלת הסרטון</button>';
+        g.innerHTML = '<p>פרסומת לחנות מין. תוכן בוטה (ללא עירום).</p><button type="button" class="btn btn--solid"><span class="tri"></span>להפעלת הסרטון</button>';
         g.querySelector('button').addEventListener('click', function () { veil.classList.remove('veiled'); show(a); });
         scr.appendChild(g);
       } else {
@@ -665,7 +665,7 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
   function adCard(a) {
     return '<a class="card' + (a.sensitive ? ' card--sensitive' : '') + '" href="https://youtu.be/' + a.yt + '" target="_blank" rel="noopener" data-ad="' + a.slug + '" data-group="ads" data-yt="' + a.yt + '" data-title="' + esc(a.title) + '" data-desc="' + esc(a.desc) + '"' + (a.sensitive ? ' data-sensitive' : '') + '>' +
       '<div class="card-media"><img src="' + ytImg(a.yt, a.q) + '" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="play-dot" aria-hidden="true"></span>' +
-      (a.sensitive ? '<span class="veil" aria-hidden="true"><b>פרסומת לחנות מין</b><span>תוכן בוטה. לחצו כדי להציג</span></span>' : '') + '</div>' +
+      (a.sensitive ? '<span class="veil" aria-hidden="true"><b>פרסומת לחנות מין</b><span>תוכן בוטה (ללא עירום). לחצו כדי להציג</span></span>' : '') + '</div>' +
       '<div class="card-cap"><h3>' + esc(a.title) + '</h3><p><span>' + esc(a.kind) + '</span></p></div>' +
       '</a>';
   }
@@ -720,7 +720,7 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
       '<div class="osd osd--r" aria-hidden="true">4K · 25 FPS</div>' +
       '<div class="hero-grid">' +
         '<div><h1>אסף טל</h1><p class="role">עורך ויוצר וידאו</p>' +
-        '<p class="line">גיבורים חריגים משולי החברה, רגעים בומבסטיים והצפה חזותית על מרקע המסך.</p>' +
+        '<p class="line">גיבורים חריגים משולי החברה, רגעים בומבסטיים והצפה חזותית על המרקע.</p>' +
         '<div class="actions"><a class="btn btn--solid" href="#works"><span class="tri"></span>לצפייה בעבודות</a><a class="btn btn--ghost" href="#contact">צרו קשר</a></div></div>' +
         '<div class="eye"><video autoplay muted loop playsinline preload="auto" poster="' + VID.headStill + '" aria-hidden="true"><source src="' + VID.head + '" type="video/mp4"></video></div>' +
       '</div>' +
@@ -730,9 +730,9 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
       '<div class="row-head"><h2 id="about-h">אודות</h2></div>' +
       '<div class="about">' +
         '<div class="bio">' + paras([
-          'היי! אני אסף – סטודנט, עורך, יוצר ואמן וידאו עם חיבור חזק לגיבורים חריגים משולי החברה, רגעים בומבסטיים והצפה חזותית על מרקע המסך. כל הדברים שגורמים לצופה להרגיש חי.',
+          'היי! אני אסף – סטודנט, עורך, יוצר ואמן וידאו עם חיבור חזק לגיבורים חריגים משולי החברה, רגעים בומבסטיים והצפה חזותית על המרקע. כל הדברים שגורמים לצופה להרגיש חי.',
           'אני לא זוכר את עצמי בלי בתי קולנוע. כשהייתי בן 5 הלכתי בפעם הראשונה, ולמעשה עד עכשיו לא הפסקתי. כשראיתי בפעם הראשונה בגיל 14 את Interstellar של כריסטופר נולאן על מסך האיימקס, הבנתי מה הוא כוחו של הקולנוע, ומאז גם הבנתי שזה מה שאני רוצה לעסוק בו כל חיי.',
-          'העבודות שלי נוטות לעיסוק בגיבורים לא מושלמים אך מעניינים, לעריכה קצבית ולרגעים אנושיים ופגיעים. אני אוהב להפוך חומר גלם פשוט ליצירת וידאו מעניין, מושך וכזה שפשוט אי אפשר להתעלם ממנו – בין אם זה עלילתי, דוקומנטרי או וידאו אמנותי ומוזר שאי אפשר להזיז ממנו את העיניים.'
+          'העבודות שלי נוטות לעיסוק בגיבורים לא מושלמים אך מעניינים, לעריכה קצבית ולרגעים אנושיים ופגיעים. אני אוהב לקחת חומר גלם פשוט ולהפוך אותו לוידאו מעניין, מושך וכזה שפשוט אי אפשר להתעלם ממנו – בין אם זה עלילתי, דוקומנטרי או וידאו אמנותי ומוזר שאי אפשר להזיז ממנו את העיניים.'
         ]) + '</div>' +
         '<div class="cv">' +
           '<section><h3>לימודים</h3><ul>' +

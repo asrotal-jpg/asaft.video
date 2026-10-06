@@ -182,7 +182,7 @@
       if (veil) {
         var g = d.createElement('div');
         g.className = 'gate';
-        g.innerHTML = '<p>פרסומת לחנות מין. תוכן בוטה.</p><button type="button" class="btn btn--solid"><span class="tri"></span>להפעלת הסרטון</button>';
+        g.innerHTML = '<p>פרסומת לחנות מין. תוכן בוטה (ללא עירום).</p><button type="button" class="btn btn--solid"><span class="tri"></span>להפעלת הסרטון</button>';
         g.querySelector('button').addEventListener('click', function () { veil.classList.remove('veiled'); show(a); });
         scr.appendChild(g);
       } else {
