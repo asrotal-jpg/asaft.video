@@ -155,14 +155,16 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
 .foot a:hover{color:var(--yellow)}
 
 /* project page */
-.title{position:relative;isolation:isolate;min-height:min(88vh,900px);display:flex;align-items:flex-end;padding:calc(var(--bar) + 48px) 0 clamp(36px,5vw,64px)}
+.title{position:relative;isolation:isolate;min-height:min(88vh,900px);display:flex;align-items:flex-end;padding:calc(var(--bar) + 84px) 0 clamp(36px,5vw,64px)}
 .title-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#000}
 .title-bg img{width:100%;height:100%;object-fit:cover;opacity:.62}
 .title-bg--blur img{filter:blur(34px) saturate(1.15);transform:scale(1.25);opacity:.5}
 .title-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#000 3%,rgba(0,0,0,.55) 42%,rgba(0,0,0,.2) 75%,rgba(0,0,0,.55)),linear-gradient(to left,rgba(0,0,0,.82),rgba(0,0,0,0) 72%)}
 .title-grid{width:100%;display:grid;grid-template-columns:minmax(0,1fr) clamp(190px,22vw,290px);gap:clamp(28px,5vw,80px);align-items:end}
-.crumb{display:inline-block;margin-bottom:16px;color:var(--mute);font-size:15px;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .2s,border-color .2s}
-.crumb:hover{color:var(--yellow);border-color:var(--yellow)}
+.back-row{position:absolute;top:calc(var(--bar) + 20px);left:0;right:0}
+.back{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;padding-inline-start:12px;border:1px solid var(--line);border-radius:99px;background:rgba(0,0,0,.45);color:var(--ink);font-size:15px;text-decoration:none;transition:border-color .2s,color .2s}
+.back:hover{border-color:var(--yellow);color:var(--yellow)}
+.back svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
 .title h1{font:400 clamp(46px,7.2vw,110px)/1.02 var(--display);text-wrap:balance}
 .event{margin-top:14px;font-size:clamp(17px,1.6vw,21px)}
 .facts{display:flex;flex-wrap:wrap;gap:14px 34px;margin-top:24px}
@@ -236,7 +238,7 @@ background:repeating-linear-gradient(90deg,rgba(242,238,230,.28) 0 1px,transpare
   .rail .card{flex:0 0 min(56vw,240px);scroll-snap-align:start}
   .rail--wide .card{flex-basis:min(78vw,340px)}
   .credits,.about{grid-template-columns:1fr}
-  .title{min-height:0;padding-top:calc(var(--bar) + 28px)}
+  .title{min-height:0;padding-top:calc(var(--bar) + 84px)}
   .title-grid{grid-template-columns:1fr;gap:26px}
   .title-poster{order:-1;width:min(40vw,180px)}
 }
