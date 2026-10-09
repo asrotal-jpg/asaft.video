@@ -157,7 +157,7 @@ function buildSite(themeName) {
         'העבודות שלי נוטות לעיסוק בגיבורים לא מושלמים אך מעניינים, לעריכה קצבית ולרגעים אנושיים ופגיעים. אני אוהב לקחת חומר גלם פשוט ולהפוך אותו לוידאו מעניין, מושך וכזה שפשוט אי אפשר להתעלם ממנו – בין אם זה עלילתי, דוקומנטרי או וידאו אמנותי ומוזר שאי אפשר להזיז ממנו את העיניים.'
       ],
       cv: {
-        edu: ['לימודים', [['תואר ראשון באקדמיה לאמנות בצלאל', 'דצמבר 2023 – היום', 'המחלקה לאמנויות המסך, התמחות וידאו: אמנות, עריכת וידאו, בימוי עלילתי ודוקו, עריכת תמונה, צילום, כתיבה דרמטית.']]],
+        edu: ['לימודים', [['תואר ראשון באקדמיה לאמנות בצלאל', 'דצמבר 2023 – היום', 'המחלקה לאמנויות המסך, התמחות וידאו: אמנות, עריכת וידאו, בימוי עלילתי ודוקו, עריכת תמונה, צילום, כתיבת תסריט.']]],
         courses: ['קורסים מקצועיים', [
           ['קורס יוצר וידאו ב״הבצפר״', 'נוב׳ 2022 – אוג׳ 2023', 'בית הספר של חברות הפרסום והדיגיטל: וידאו, כתיבת מסרים פרסומיים, כתיבת תסריטים, קריאייטיב, פרימייר, בימוי, הפקה, סרטוני תדמית, צילום.'],
           ['קורס תסריטאות בהנחיית גדי טאוב', '2021 – 2022', 'האוניברסיטה העברית'],
@@ -200,7 +200,7 @@ function buildSite(themeName) {
         'My work gravitates toward flawed but fascinating heroes, rhythmic editing and vulnerable human moments. I love taking simple raw footage and turning it into a video that’s engaging, compelling and simply impossible to ignore – whether it’s fiction, documentary or strange video art you can’t take your eyes off.'
       ],
       cv: {
-        edu: ['Education', [['B.F.A., Bezalel Academy of Arts and Design', 'Dec 2023 – present', 'Screen-Based Arts Department, video specialization: art, video editing, fiction and documentary directing, image editing, cinematography, dramatic writing.']]],
+        edu: ['Education', [['B.F.A., Bezalel Academy of Arts and Design', 'Dec 2023 – present', 'Screen-Based Arts Department, video specialization: art, video editing, fiction and documentary directing, image editing, cinematography, screenwriting.']]],
         courses: ['Professional courses', [
           ['Video Creator course at HaBetzefer', 'Nov 2022 – Aug 2023', 'Israel’s advertising agencies academy: video, ad copywriting, scriptwriting, creative, Premiere, directing, production, brand videos, cinematography.'],
           ['Screenwriting course with Gadi Taub', '2021 – 2022', 'The Hebrew University of Jerusalem'],
