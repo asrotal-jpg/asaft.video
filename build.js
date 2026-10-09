@@ -820,7 +820,6 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
   var ICON_X = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>';
   var ICON_PLAY = '<svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>';
   var ICON_BACK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-  var FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Cpath d='M24 17l25 15-25 15z' fill='%23" + TH.accent.slice(1) + "'/%3E%3C/svg%3E";
   var SITE = 'https://asaft.video/';
 
   /* the language being rendered: its interface text, and the works, ads and credits in that language */
@@ -850,7 +849,9 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
       (o.imageW ? '<meta property="og:image:width" content="' + o.imageW + '">\n<meta property="og:image:height" content="' + o.imageH + '">\n' : '') +
       '<meta name="twitter:card" content="' + (o.card || 'summary_large_image') + '">\n' +
       '<meta name="theme-color" content="#000000">\n' +
-      '<link rel="icon" href="' + FAVICON + '">\n' +
+      /* the rotating head as the site icon, in browser tabs (Chrome, Safari) and history */
+      '<link rel="icon" type="image/png" sizes="32x32" href="' + o.A + 'media/favicon-32.png">\n' +
+      '<link rel="icon" type="image/png" sizes="192x192" href="' + o.A + 'media/favicon-192.png">\n' +
       /* Safari history, bookmarks and home screen use this instead of a letter */
       '<link rel="apple-touch-icon" href="' + o.A + 'media/apple-touch-icon.png">\n' +
       '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
