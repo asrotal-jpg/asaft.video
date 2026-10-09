@@ -130,7 +130,10 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
 .cv li b{font-weight:500}
 .cv li time{color:var(--mute);font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums;padding-top:3px}
 .cv li p{grid-column:1/-1;color:var(--mute);font-size:15px;line-height:1.6;margin-top:2px}
-.cv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.cv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+/* software and languages side by side, skills on a full row below so every tag stays on one line */
+.cv-grid>section:nth-child(2){order:1;grid-column:1/-1}
+.cv .tags li{white-space:nowrap}
 .cv-grid h3{margin-bottom:12px}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
 .cv .tags li{display:block;border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:15px}
@@ -227,10 +230,6 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
 [dir=ltr] .title-bg::after{background:linear-gradient(to top,#000 3%,rgba(0,0,0,.55) 42%,rgba(0,0,0,.2) 75%,rgba(0,0,0,.55)),linear-gradient(to right,rgba(0,0,0,.82),rgba(0,0,0,0) 72%)}
 [dir=ltr] .back svg,[dir=ltr] .rb svg{transform:scaleX(-1)}
 [dir=ltr] .list li::before{clip-path:polygon(0 0,100% 50%,0 100%)}
-/* English skill names are longer: skills get a full row under software and languages, one line per tag */
-[dir=ltr] .cv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-[dir=ltr] .cv-grid>section:nth-child(2){order:1;grid-column:1/-1}
-[dir=ltr] .cv .tags li{white-space:nowrap}
 
 /* halation: display type blooms in the accent colour, like a hovered poster */
 .brand,.hero h1,.hero .role,.row-head h2,.title h1,.contact h2,.cv h3,.credits h3,.notes h2,.reach h3{text-shadow:0 0 .12em rgba(var(--accent-rgb),.36),0 0 .55em rgba(var(--accent-rgb),.14)}
@@ -265,7 +264,6 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
 }
 @media (max-width:560px){
   body{font-size:16px}
-  .cv-grid{grid-template-columns:1fr 1fr}
   .reach h3{flex-basis:100%}
   .osd--r{display:none}
   .player-meta h3{font-size:22px}
