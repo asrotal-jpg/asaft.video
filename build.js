@@ -855,8 +855,8 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
       '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link rel="preconnect" href="https://static.wixstatic.com">\n' +
       '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Secular+One&family=Space+Mono&display=swap">\n' +
-      '<link rel="stylesheet" href="' + o.A + 'assets/site.css">\n' +
-      '<script src="' + o.A + 'assets/site.js" defer></script>\n' +
+      '<link rel="stylesheet" href="' + o.A + 'assets/site.css?v=' + VER.css + '">\n' +
+      '<script src="' + o.A + 'assets/site.js?v=' + VER.js + '" defer></script>\n' +
       '</head>\n';
   }
 
@@ -1109,6 +1109,9 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
     'assets/site.css': theme + CSS.trim() + '\n',
     'assets/site.js': JS.trim() + '\n'
   };
+  /* a fingerprint of each file in its link, so browsers fetch the new version right after a change */
+  var fp = function (t) { var h = 5381; for (var i = 0; i < t.length; i++) h = ((h * 33) ^ t.charCodeAt(i)) >>> 0; return h.toString(36); };
+  var VER = { css: fp(files['assets/site.css']), js: fp(files['assets/site.js']) };
   ['he', 'en'].forEach(function (lang) {
     var tr = function (map) { return function (o) { return lang === 'en' ? Object.assign({}, o, map[o.slug]) : o; }; };
     LANG = lang;
