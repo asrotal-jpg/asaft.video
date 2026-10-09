@@ -138,7 +138,7 @@ function buildSite(themeName) {
     he: {
       lang: 'he', dir: 'rtl', locale: 'he_IL', otherLocale: 'en_US', swapLang: 'en', swapName: 'English',
       site: 'אסף טל – עורך, יוצר ואמן וידאו',
-      homeDesc: 'פורטפוליו של אסף טל – עורך, יוצר ואמן וידאו. עבודות מהלימודים בבצלאל, תערוכות, פרסומות והפקה.',
+      homeDesc: 'עבודות מהלימודים בבצלאל, תערוכות, פרסומות והפקה.',
       skip: 'דלגו לתוכן', name: 'אסף טל', menu: 'תפריט', navLabel: 'ניווט ראשי',
       nav: ['אודות', 'מהלימודים', 'תערוכות', 'פרסומות', 'הפקה'], contact: 'צרו קשר',
       poster: 'פוסטר: ', warn: 'אזהרה: ', and: ' ו', view: 'לעמוד העבודה',
@@ -181,7 +181,7 @@ function buildSite(themeName) {
     en: {
       lang: 'en', dir: 'ltr', locale: 'en_US', otherLocale: 'he_IL', swapLang: 'he', swapName: 'עברית',
       site: 'Asaf Tal – Video Editor, Creator and Artist',
-      homeDesc: 'Portfolio of Asaf Tal – video editor, creator and artist. Work from Bezalel Academy, exhibitions, commercials and production.',
+      homeDesc: 'Work from Bezalel Academy, exhibitions, commercials and production.',
       skip: 'Skip to content', name: 'Asaf Tal', menu: 'Menu', navLabel: 'Main navigation',
       nav: ['About', 'From my studies', 'Exhibitions', 'Commercials', 'Production'], contact: 'Contact',
       poster: 'Poster: ', warn: 'Content warning: ', and: ' and ', view: 'View project',
@@ -845,7 +845,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
       '<meta property="og:description" content="' + esc(o.desc) + '">\n' +
       '<meta property="og:image" content="' + esc(/^https?:/.test(o.image) ? o.image : SITE + o.image.replace(/^(\.\.\/)+/, '')) + '">\n' +
       (o.imageW ? '<meta property="og:image:width" content="' + o.imageW + '">\n<meta property="og:image:height" content="' + o.imageH + '">\n' : '') +
-      '<meta name="twitter:card" content="summary_large_image">\n' +
+      '<meta name="twitter:card" content="' + (o.card || 'summary_large_image') + '">\n' +
       '<meta name="theme-color" content="#000000">\n' +
       '<link rel="icon" href="' + FAVICON + '">\n' +
       '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
@@ -965,7 +965,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
     ROOT = en ? '../' : '';
     return head({
       title: L.site, desc: L.homeDesc,
-      image: VID.headStill, imageW: 960, imageH: 960,
+      image: 'media/og-head.jpg', imageW: 240, imageH: 240, card: 'summary',
       A: ROOT, path: { he: '', en: 'en/' }
     }) +
     '<body data-page="home" id="top">\n' + topBar('', en ? '../' : 'en/') +
