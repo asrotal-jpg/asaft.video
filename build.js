@@ -46,7 +46,7 @@ function buildSite(themeName) {
       length: '8:34', genre: 'עלילתי', warn: ['מיניות', 'פגיעה עצמית מרומזות'], role: 'במאי, תסריטאי, עורך ואפקטים מיוחדים',
       cap: [['8:34', 1], ['עלילתי']],
       about: ['״בעיניים עצומות״ היה ההתנסות הראשונה שלי בכתיבת תסריט, בימוי ועריכת סרט. ניסיתי ליצור גיבור מעורר הזדהות אך פגום, שסיפורו מסופר עם שפה צורנית מאוד מאופיינת ועריכה שלא מאפשרת לצופה להישאר אדיש.'],
-      challenges: ['2.5 ימי צילום בלבד (דרישות האוניברסיטה)', 'השתלטות על סט עם הרבה אנשי צוות', 'שינוי תסריט באמצעות עריכה']
+      challenges: ['2.5 ימי צילום בלבד (דרישות המרצה)', 'השתלטות על סט עם הרבה אנשי צוות', 'שינוי תסריט באמצעות עריכה']
     },
     {
       slug: 'sipurei-savta', group: 'works', title: 'סיפורי סבתא', img: IMG.savta, prev: VID.savta, yt: 'MViNhFOE76c',
@@ -206,7 +206,7 @@ function buildSite(themeName) {
           ['Screenwriting course with Gadi Taub', '2021 – 2022', 'The Hebrew University of Jerusalem'],
           ['Directing course with Gur Bentwich', '2020', 'OnCourse College']
         ]],
-        software: ['Software', 'Adobe', ['Premiere,', 'Photoshop,', 'After Effects']],
+        software: ['Software', 'Adobe', ['Premiere', 'Photoshop', 'After Effects']],
         skills: ['Skills', ['Video editing', 'Cinematography', 'Directing', 'Content development']],
         langs: ['Languages', ['Hebrew', 'English'], 'Native-level English, after 5 years in the US']
       },
