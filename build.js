@@ -6,7 +6,7 @@ function buildSite(themeName) {
     beeinayim: '118c37_fde34415a25e4782ac20271bd53f0476~mv2.jpg',
     savta: '118c37_f68ff8fdfabf43dfa046fd441460e721~mv2.png',
     him: '118c37_fe42e85b95014895bdb8518d29ebfa76~mv2.png',
-    news: '118c37_ef40d122348146b59623c285fc825df0~mv2.png',
+    news: 'media/news-poster.jpg',
     gei: '118c37_4a4aeeee53244f6894d7be5574c72159~mv2.jpg',
     daltim: '118c37_35e30ea1e4fe499c9344a6463f27d15f~mv2.jpg',
     baam: '118c37_8e8fc22bb9ef4d78a7ca2be8258d0d47~mv2.jpg'
@@ -14,7 +14,7 @@ function buildSite(themeName) {
   var VIDEO = 'https://video.wixstatic.com/video/';
   var VID = {
     savta: VIDEO + '118c37_52b5bc1cbcba4cf698ad119b4b2b3c76/480p/mp4/file.mp4',
-    news: VIDEO + '118c37_f3f757c20c04468c9a2b4dbd6df034c6/480p/mp4/file.mp4',
+    news: 'media/news-poster.mp4',
     him: VIDEO + '118c37_7962c8743a984cb89ec158d651ad122a/480p/mp4/file.mp4',
     himFull: VIDEO + '118c37_0e70fe4d72134b44becf93da8f808d46/720p/mp4/file.mp4',
     himStill: MEDIA + '118c37_0e70fe4d72134b44becf93da8f808d46f000.jpg',
@@ -26,7 +26,9 @@ function buildSite(themeName) {
     var ext = id.split('.').pop();
     return MEDIA + id + '/v1/fill/w_' + w + ',h_' + h + ',al_c,q_85,enc_auto/image.' + ext;
   }
-  function poster(id, w) { return pic(id, w, Math.round(w * 16 / 9)); }
+  /* files in media/ are served with the site (relative to the page); the rest come from the Wix CDN */
+  function asset(u) { return /^media\//.test(u) ? ROOT + u : u; }
+  function poster(id, w) { return /^media\//.test(id) ? ROOT + id : pic(id, w, Math.round(w * 16 / 9)); }
   function ytImg(id, q) { return 'https://i.ytimg.com/vi/' + id + '/' + (q || 'maxresdefault') + '.jpg'; }
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -127,7 +129,7 @@ function buildSite(themeName) {
   /* colour themes: node build.js [outdir] [yellow|blue] */
   var THEMES = {
     yellow: { accent: '#e8c232', accentRgb: '232,194,50', ink: '#f2eee6', inkRgb: '242,238,230', mute: '#a39e95', faint: '#77726b' },
-    blue: { accent: '#4da3ff', accentRgb: '77,163,255', ink: '#eef1f6', inkRgb: '238,241,246', mute: '#9ca3ad', faint: '#6c737d' }
+    blue: { accent: '#2b8aff', accentRgb: '43,138,255', ink: '#eef1f6', inkRgb: '238,241,246', mute: '#9ca3ad', faint: '#6c737d' }
   };
   var TH = THEMES[themeName] || THEMES.yellow;
 
@@ -193,7 +195,7 @@ function buildSite(themeName) {
       line: 'Misfit heroes from society’s margins, bombastic moments and a visual flood on screen.',
       watchWork: 'Watch my work', getInTouch: 'Get in touch',
       bio: [
-        'Hi! I’m Asaf – a student, editor, creator and video artist with a strong pull toward misfit heroes from society’s margins, bombastic moments and a visual flood on screen. All the things that make a viewer feel alive.',
+        'Hi! I’m Asaf – a student, video editor, creator and artist with a strong pull toward misfit heroes from society’s margins, bombastic moments and a visual flood on screen. All the things that make the audience feel alive.',
         'I can’t remember life without movie theaters. I went for the first time when I was 5, and I haven’t really stopped since. When I first saw Christopher Nolan’s Interstellar on an IMAX screen at 14, I understood the power of cinema – and ever since, I’ve known it’s what I want to do with my life.',
         'My work gravitates toward flawed but fascinating heroes, rhythmic editing and vulnerable human moments. I love taking simple raw footage and turning it into video that’s engaging, compelling and simply impossible to ignore – whether it’s fiction, documentary or strange video art you can’t take your eyes off.'
       ],
@@ -204,7 +206,7 @@ function buildSite(themeName) {
           ['Screenwriting course with Gadi Taub', '2021 – 2022', 'The Hebrew University of Jerusalem'],
           ['Directing course with Gur Bentwich', '2020', 'OnCourse College']
         ]],
-        software: ['Software', 'Adobe', 'Premiere, Photoshop, After Effects'],
+        software: ['Software', 'Adobe', ['Premiere,', 'Photoshop,', 'After Effects']],
         skills: ['Skills', ['Video editing', 'Cinematography', 'Directing', 'Content development']],
         langs: ['Languages', ['Hebrew', 'English'], 'Native-level English, after 5 years in the US']
       },
@@ -229,13 +231,13 @@ function buildSite(themeName) {
         role: 'Director, screenwriter, editor and special effects',
         cap: [['8:34', 1], ['Fiction']],
         about: ['“Within Closed Eyes” was my first experience writing, directing and editing a film. I set out to create a relatable yet flawed hero, whose story is told in a highly distinctive visual language, with editing that won’t let the viewer stay indifferent.'],
-        challenges: ['Only 2.5 shooting days (a school requirement)', 'Running a set with a large crew', 'Rewriting the script in the edit']
+        challenges: ['Only 2.5 shooting days (the teacher’s requirement)', 'Running a set with a large crew', 'Rewriting the script in the edit']
       },
       'sipurei-savta': {
         title: 'Grandma Tales', genre: 'Hybrid documentary', role: 'Director, cinematographer, editor',
         cap: [['12:48', 1], ['Hybrid documentary']],
         about: ['“Grandma Tales” is a personal hybrid documentary that tries to capture my grandmother’s personality and, through the filmmaking itself, fulfill a dream she had long given up on.'],
-        challenges: ['Taming a huge amount of raw footage in the edit room', 'Cracking the film’s narrative in the edit', 'Directing a non-professional actress']
+        challenges: ['Taking a grip on a huge amount of raw footage in the edit room', 'Cracking the film’s narrative in the edit', 'Directing a non-professional actress']
       },
       him: {
         noun: 'video', genre: 'Video art', warn: ['nudity', 'flashing lights'], role: 'Director, cinematographer, gaffer, editor',
@@ -250,7 +252,7 @@ function buildSite(themeName) {
           'An expanded version of a work I created with Lior Ben Avraham, a student in Bezalel’s Fine Arts Department.',
           'The project opens as a 2026 year-in-review – a fictional documentary that borrows the language and look of Israel’s Channel 12 News, mixing real news items with fabricated ones to create a historical record of an alternate reality. Little by little it slides into the personal story of one of the film’s actors, who also loses his grip on where reality ends and fiction begins.'
         ],
-        challenges: ['Working with an actor', 'Making many cuts in the edit, each radically different from the last, until we zeroed in on the final version', 'Recreating the graphics package and on-air language of Channel 12 News'],
+        challenges: ['Working with an actor', 'Making many cuts in the edit, each radically different from the previous, until we zeroed in on the final version', 'Recreating the graphics package and on-air language of Channel 12 News'],
         related: { slug: 'bezalel-baam', text: 'A short version of this work (2:20) was shown at the “Bezalel Ba’am” exhibition.', cta: 'See the short version' }
       },
       'gei-ben-hinnom': {
@@ -286,7 +288,7 @@ function buildSite(themeName) {
       }
     },
     ads: {
-      'ad-rap-cut': { title: 'Wok to Walk (Rap Cut)', kind: 'Script for the chain’s ad competition', desc: 'A commercial script written for an ad competition held by the food chain Wok to Walk (the competition was canceled before we could submit).' },
+      'ad-rap-cut': { title: 'Wok to Walk (Rough Cut)', kind: 'Script for the chain’s ad competition', desc: 'A commercial script written for an ad competition held by the food chain Wok to Walk (the competition was canceled before we could submit).' },
       'ad-shavot': { title: 'Building a Future with Shavot', kind: 'Commercial for the Shavot nonprofit', desc: 'A commercial for the nonprofit Shavot. Directed and written during my studies at HaBetzefer.' },
       'ad-taamim': { title: 'Flavors', kind: 'Sex shop ad series', desc: 'From a series of commercials for a sex shop (a small business). Directed and written during my studies at HaBetzefer.' },
       'ad-lehagdil': { title: 'Bigger?', kind: 'Sex shop ad series', desc: 'From a series of commercials for a sex shop (a small business). Directed and written during my studies at HaBetzefer.' },
@@ -294,8 +296,8 @@ function buildSite(themeName) {
     },
     credits: [
       { h: 'Production assistant', items: [
-        { t: 'Rosh Hashanah commercial for the Osher Ad chain', yt: 'lrmaysk-_nc' },
-        { t: 'Hanukkah commercial for the Osher Ad chain', yt: '_cYkNKOriy4' },
+        { t: 'Rosh Hashanah commercial for the Osher Ad supermarket chain', yt: 'lrmaysk-_nc' },
+        { t: 'Hanukkah commercial for the Osher Ad supermarket chain', yt: '_cYkNKOriy4' },
         { t: 'Short film – “Holocaust Day,” directed by Yevgeny Gratvol' },
         { t: 'Feature film – “Zebras,” directed by Shiran Shahrabani' }
       ] },
@@ -818,7 +820,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
   var SITE = 'https://asaft.video/';
 
   /* the language being rendered: its interface text, and the works, ads and credits in that language */
-  var LANG, L, LW, LA, LC;
+  var LANG, L, LW, LA, LC, ROOT;
 
   /* o.A: path to the shared assets; o.path: this page's address in each language */
   function head(o) {
@@ -837,7 +839,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
       '<meta property="og:url" content="' + here + '">\n' +
       '<meta property="og:title" content="' + esc(o.title) + '">\n' +
       '<meta property="og:description" content="' + esc(o.desc) + '">\n' +
-      '<meta property="og:image" content="' + esc(o.image) + '">\n' +
+      '<meta property="og:image" content="' + esc(/^https?:/.test(o.image) ? o.image : SITE + o.image.replace(/^(\.\.\/)+/, '')) + '">\n' +
       (o.imageW ? '<meta property="og:image:width" content="' + o.imageW + '">\n<meta property="og:image:height" content="' + o.imageH + '">\n' : '') +
       '<meta name="twitter:card" content="summary_large_image">\n' +
       '<meta name="theme-color" content="#000000">\n' +
@@ -872,7 +874,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
 
   function card(w, S, named) {
     var vt = named ? ' style="view-transition-name:p-' + w.slug + '"' : '';
-    return '<a class="card' + (w.prev ? ' has-prev' : '') + '" href="' + S + 'work/' + w.slug + '.html"' + (w.prev ? ' data-prev="' + esc(w.prev) + '"' : '') + '>' +
+    return '<a class="card' + (w.prev ? ' has-prev' : '') + '" href="' + S + 'work/' + w.slug + '.html"' + (w.prev ? ' data-prev="' + esc(asset(w.prev)) + '"' : '') + '>' +
       '<div class="card-media">' +
       '<img src="' + poster(w.img, 540) + '" alt="' + esc(L.poster + w.title) + '" width="540" height="960" loading="lazy" decoding="async"' + vt + '>' +
       (w.prev ? '<video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>' : '') +
@@ -945,7 +947,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
       '<section><h3>' + c.edu[0] + '</h3><ul>' + entries(c.edu[1]) + '</ul></section>' +
       '<section><h3>' + c.courses[0] + '</h3><ul>' + entries(c.courses[1]) + '</ul></section>' +
       '<div class="cv-grid">' +
-        '<section><h3>' + c.software[0] + '</h3><ul class="tags"><li class="suite"><b>' + c.software[1] + '</b><span>' + esc(c.software[2]) + '</span></li></ul></section>' +
+        '<section><h3>' + c.software[0] + '</h3><ul class="tags"><li class="suite"><b>' + c.software[1] + '</b><span>' + [].concat(c.software[2]).map(esc).join('<br>') + '</span></li></ul></section>' +
         '<section><h3>' + c.skills[0] + '</h3>' + tags(c.skills[1]) + '</section>' +
         '<section><h3>' + c.langs[0] + '</h3>' + tags(c.langs[1]) + '<small>' + esc(c.langs[2]) + '</small></section>' +
       '</div>' +
@@ -956,10 +958,11 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
     var works = LW.filter(function (w) { return w.group === 'works'; });
     var expo = LW.filter(function (w) { return w.group === 'exhibitions'; });
     var en = LANG === 'en';
+    ROOT = en ? '../' : '';
     return head({
       title: L.site, desc: L.homeDesc,
       image: VID.headStill, imageW: 960, imageH: 960,
-      A: en ? '../' : '', path: { he: '', en: 'en/' }
+      A: ROOT, path: { he: '', en: 'en/' }
     }) +
     '<body data-page="home" id="top">\n' + topBar('', en ? '../index.html' : 'en/index.html') +
     '<main id="main">\n' +
@@ -1015,6 +1018,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
 
   function workPage(w) {
     var S = '../', en = LANG === 'en';
+    ROOT = en ? '../../' : '../';
     var others = LW.filter(function (x) { return x.slug !== w.slug; });
     var hasScreen = !!(w.yt || w.video);
     var backdrop = w.yt ? ytImg(w.yt) : poster(w.img, 540);
@@ -1055,12 +1059,12 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
     /* the poster moves on its own page wherever a moving version exists */
     var vt = ' style="view-transition-name:p-' + w.slug + '"';
     var posterEl = w.prev ?
-      '<video class="title-poster" src="' + esc(w.prev) + '" poster="' + poster(w.img, 540) + '" width="540" height="960" autoplay muted loop playsinline preload="auto" aria-hidden="true"' + vt + '></video>' :
+      '<video class="title-poster" src="' + esc(asset(w.prev)) + '" poster="' + poster(w.img, 540) + '" width="540" height="960" autoplay muted loop playsinline preload="auto" aria-hidden="true"' + vt + '></video>' :
       '<img class="title-poster" src="' + poster(w.img, 540) + '" alt="' + esc(L.poster + w.title) + '" width="540" height="960"' + vt + '>';
 
     return head({
       title: pageTitle, desc: desc, image: w.yt ? ytImg(w.yt) : (w.still || poster(w.img, 540)),
-      A: en ? '../../' : '../', path: { he: 'work/' + w.slug + '.html', en: 'en/work/' + w.slug + '.html' }
+      A: ROOT, path: { he: 'work/' + w.slug + '.html', en: 'en/work/' + w.slug + '.html' }
     }) +
       '<body data-page="work" id="top">\n' + topBar(S, (en ? '../../' : '../en/') + 'work/' + w.slug + '.html') +
       '<main id="main">\n' +
@@ -1119,6 +1123,12 @@ if (typeof module !== 'undefined' && typeof require === 'function' && require.ma
     var full = path.join(out, p);
     fs.mkdirSync(path.dirname(full), { recursive: true });
     fs.writeFileSync(full, files[p]);
+  });
+  /* self-hosted media (see tools/news_poster.py) */
+  var media = path.join(__dirname, 'media');
+  if (fs.existsSync(media)) fs.readdirSync(media).forEach(function (f) {
+    fs.mkdirSync(path.join(out, 'media'), { recursive: true });
+    fs.copyFileSync(path.join(media, f), path.join(out, 'media', f));
   });
   console.log(Object.keys(files).map(function (p) { return p + ' ' + Buffer.byteLength(files[p]); }).join('\n'));
 }
