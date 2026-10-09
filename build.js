@@ -163,7 +163,7 @@ function buildSite(themeName) {
           ['קורס תסריטאות בהנחיית גדי טאוב', '2021 – 2022', 'האוניברסיטה העברית'],
           ['קורס בימוי בהנחיית גור בנטביץ׳', '2020', 'מכללת OnCourse']
         ]],
-        software: ['תוכנות', 'אדובי', 'פרימייר, פוטושופ, אפטר אפקטס'],
+        software: ['תוכנות', 'אדובי', ['פרימייר', 'פוטושופ', 'אפטר אפקטס']],
         skills: ['כישורים', ['עריכת וידאו', 'צילום', 'בימוי', 'פיתוח תוכן']],
         langs: ['שפות', ['עברית', 'אנגלית'], 'אנגלית ברמת שפת אם, אחרי 5 שנים בארה״ב']
       },
@@ -854,7 +854,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
 
   /* S: path to this language's home page folder; swap: the same page in the other language */
   function topBar(S, swap) {
-    var base = S ? S + 'index.html' : '';
+    var base = S;
     var ids = ['about', 'works', 'exhibitions', 'ads', 'production'];
     return '<a class="skip" href="#main">' + L.skip + '</a>\n' +
       '<header class="bar">\n<a class="brand" href="' + (S ? base : '#top') + '">' + L.name + '</a>\n' +
@@ -964,7 +964,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
       image: VID.headStill, imageW: 960, imageH: 960,
       A: ROOT, path: { he: '', en: 'en/' }
     }) +
-    '<body data-page="home" id="top">\n' + topBar('', en ? '../index.html' : 'en/index.html') +
+    '<body data-page="home" id="top">\n' + topBar('', en ? '../' : 'en/') +
     '<main id="main">\n' +
     '<section class="hero" aria-label="' + L.heroLabel + '">' +
       '<div class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></div>' +
@@ -1070,7 +1070,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
       '<main id="main">\n' +
       '<section class="title" aria-labelledby="work-h">' +
         '<div class="title-bg' + (blur ? ' title-bg--blur' : '') + '"><img src="' + esc(backdrop) + '" alt="" fetchpriority="high"></div>' +
-        '<div class="wrap back-row"><a class="back" href="' + S + 'index.html#' + w.group + '">' + ICON_BACK + esc(L.back[w.group]) + '</a></div>' +
+        '<div class="wrap back-row"><a class="back" href="' + S + '#' + w.group + '">' + ICON_BACK + esc(L.back[w.group]) + '</a></div>' +
         '<div class="wrap title-grid">' +
           '<div>' +
             '<h1 id="work-h">' + esc(w.title) + '</h1>' +
