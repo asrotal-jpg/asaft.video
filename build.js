@@ -138,7 +138,7 @@ function buildSite(themeName) {
     he: {
       lang: 'he', dir: 'rtl', locale: 'he_IL', otherLocale: 'en_US', swapLang: 'en', swapName: 'English',
       site: 'אסף טל – עורך, יוצר ואמן וידאו',
-      homeDesc: 'אסף טל – עורך, יוצר ואמן וידאו. עבודות מהלימודים בבצלאל, תערוכות, פרסומות והפקה.',
+      homeDesc: 'אסף טל – עורך, יוצר ואמן וידאו.\nעבודות מהלימודים בבצלאל, תערוכות, פרסומות והפקה.',
       skip: 'דלגו לתוכן', name: 'אסף טל', menu: 'תפריט', navLabel: 'ניווט ראשי',
       nav: ['אודות', 'מהלימודים', 'תערוכות', 'פרסומות', 'הפקה'], contact: 'צרו קשר',
       poster: 'פוסטר: ', warn: 'אזהרה: ', and: ' ו', view: 'לעמוד העבודה',
@@ -181,7 +181,7 @@ function buildSite(themeName) {
     en: {
       lang: 'en', dir: 'ltr', locale: 'en_US', otherLocale: 'he_IL', swapLang: 'he', swapName: 'עברית',
       site: 'Asaf Tal – Video Editor, Creator and Artist',
-      homeDesc: 'Asaf Tal – video editor, creator and artist. Work from Bezalel Academy, exhibitions, commercials and production.',
+      homeDesc: 'Asaf Tal – video editor, creator and artist.\nWork from Bezalel Academy, exhibitions, commercials and production.',
       skip: 'Skip to content', name: 'Asaf Tal', menu: 'Menu', navLabel: 'Main navigation',
       nav: ['About', 'From my studies', 'Exhibitions', 'Commercials', 'Production'], contact: 'Contact',
       poster: 'Poster: ', warn: 'Content warning: ', and: ' and ', view: 'View project',
@@ -832,7 +832,7 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
     return '<!doctype html>\n<html lang="' + L.lang + '" dir="' + L.dir + '">\n<head>\n<meta charset="utf-8">\n' +
       '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n' +
       '<title>' + esc(o.title) + '</title>\n' +
-      '<meta name="description" content="' + esc(o.desc) + '">\n' +
+      '<meta name="description" content="' + esc(o.desc.replace(/\n/g, ' ')) + '">\n' +
       '<link rel="canonical" href="' + here + '">\n' +
       '<link rel="alternate" hreflang="he" href="' + SITE + o.path.he + '">\n' +
       '<link rel="alternate" hreflang="en" href="' + SITE + o.path.en + '">\n' +
@@ -842,7 +842,8 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
       '<meta property="og:site_name" content="' + esc(L.site) + '">\n' +
       '<meta property="og:url" content="' + here + '">\n' +
       '<meta property="og:title" content="' + esc(o.title) + '">\n' +
-      '<meta property="og:description" content="' + esc(o.desc) + '">\n' +
+      /* a line break in the share preview (WhatsApp keeps it) */
+      '<meta property="og:description" content="' + esc(o.desc).replace(/\n/g, '&#10;') + '">\n' +
       '<meta property="og:image" content="' + esc(/^https?:/.test(o.image) ? o.image : SITE + o.image.replace(/^(\.\.\/)+/, '')) + '">\n' +
       (o.imageW ? '<meta property="og:image:width" content="' + o.imageW + '">\n<meta property="og:image:height" content="' + o.imageH + '">\n' : '') +
       '<meta name="twitter:card" content="' + (o.card || 'summary_large_image') + '">\n' +
