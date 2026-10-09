@@ -108,7 +108,7 @@ function buildSite(themeName) {
 
   var ADS = [
     { slug: 'ad-rap-cut', yt: 'kz59Rgj0rN4', title: 'ווק טו ווק (ראפ קאט)', kind: 'תסריט לתחרות הפרסומות של הרשת', desc: 'כתיבת תסריט לפרסומת במסגרת תחרות פרסומות לרשת המזון ״ווק טו ווק״ (התחרות בוטלה לפני שהספקנו להגיש).' },
-    { slug: 'ad-shavot', yt: 'JvSFg-V37B4', q: 'hqdefault', title: 'בונים עתיד עם שוות', kind: 'פרסומת לעמותת ״שוות״', desc: 'פרסומת לעמותה ללא מטרות רווח ״שוות״. בימוי וכתיבה במסגרת הלימודים בבצפר.' },
+    { slug: 'ad-shavot', yt: 'JvSFg-V37B4', q: 'hqdefault', title: 'בונים עתיד עם שוות', kind: 'פרסומת ל״שוות״, עמותה למנהיגות נערות', desc: 'פרסומת לעמותה ללא מטרות רווח ״שוות״. בימוי וכתיבה במסגרת הלימודים בבצפר.' },
     { slug: 'ad-taamim', yt: 'eyJlZaUopFs', sensitive: 1, title: 'טעמים', kind: 'סדרת פרסומות לחנות מין', desc: 'מתוך סדרת פרסומות לחנות מין (עסק קטן). בימוי וכתיבה במסגרת הלימודים בבצפר.' },
     { slug: 'ad-lehagdil', yt: 'lSKNkcfPf6c', sensitive: 1, title: 'להגדיל?', kind: 'סדרת פרסומות לחנות מין', desc: 'מתוך סדרת פרסומות לחנות מין (עסק קטן). בימוי וכתיבה במסגרת הלימודים בבצפר.' },
     { slug: 'ad-ani-rotze', yt: 'dDx8KgjB1nw', sensitive: 1, title: 'אני רוצה...', kind: 'סדרת פרסומות לחנות מין', desc: 'מתוך סדרת פרסומות לחנות מין (עסק קטן). בימוי וכתיבה במסגרת הלימודים בבצפר.' }
@@ -126,12 +126,12 @@ function buildSite(themeName) {
     ] }
   ];
 
-  /* colour themes: node build.js [outdir] [yellow|blue] */
+  /* colour themes: node build.js [outdir] [blue|yellow]; blue is live */
   var THEMES = {
     yellow: { accent: '#e8c232', accentRgb: '232,194,50', ink: '#f2eee6', inkRgb: '242,238,230', mute: '#a39e95', faint: '#77726b' },
     blue: { accent: '#2b8aff', accentRgb: '43,138,255', ink: '#eef1f6', inkRgb: '238,241,246', mute: '#9ca3ad', faint: '#6c737d' }
   };
-  var TH = THEMES[themeName] || THEMES.yellow;
+  var TH = THEMES[themeName] || THEMES.blue;
 
   /* interface text per language. Hebrew is served at the root, English under /en/ */
   var UI = {
@@ -148,7 +148,7 @@ function buildSite(themeName) {
       hello: 'מצפה לעבוד עמכם!',
       reach: ['מגורים', 'מייל', 'וואטסאפ', 'אינסטגרם'], city: 'ירושלים / רמת גן', phone: '050-2225071',
       foot: 'אסף טל, עורך ויוצר וידאו', top: 'חזרה למעלה',
-      heroLabel: 'פתיחה', role: 'עורך ויוצר וידאו',
+      heroLabel: 'פתיחה', role: 'עורך, יוצר ואמן וידאו',
       line: 'גיבורים חריגים משולי החברה, רגעים בומבסטיים והצפה חזותית על המרקע.',
       watchWork: 'לצפייה בעבודות', getInTouch: 'צרו קשר',
       bio: [
@@ -191,7 +191,7 @@ function buildSite(themeName) {
       hello: 'Looking forward to working with you!',
       reach: ['Based in', 'Email', 'WhatsApp', 'Instagram'], city: 'Jerusalem / Ramat Gan', phone: '+972 50-222-5071',
       foot: 'Asaf Tal, video editor and creator', top: 'Back to top',
-      heroLabel: 'Intro', role: 'Video editor & creator',
+      heroLabel: 'Intro', role: 'Video editor, creator and artist',
       line: 'Misfit heroes from society’s margins, bombastic moments and a visual flood on screen.',
       watchWork: 'Watch my work', getInTouch: 'Get in touch',
       bio: [
@@ -289,7 +289,7 @@ function buildSite(themeName) {
     },
     ads: {
       'ad-rap-cut': { title: 'Wok to Walk (Rough Cut)', kind: 'Script for the chain’s ad competition', desc: 'A commercial script written for an ad competition held by the food chain Wok to Walk (the competition was canceled before we could submit).' },
-      'ad-shavot': { title: 'Building a Future with Shavot', kind: 'Commercial for the Shavot nonprofit', desc: 'A commercial for the nonprofit Shavot. Directed and written during my studies at HaBetzefer.' },
+      'ad-shavot': { title: 'Building a Future with Shavot', kind: 'Commercial for Shavot, a girls’ leadership nonprofit', desc: 'A commercial for the nonprofit Shavot. Directed and written during my studies at HaBetzefer.' },
       'ad-taamim': { title: 'Flavors', kind: 'Sex shop ad series', desc: 'From a series of commercials for a sex shop (a small business). Directed and written during my studies at HaBetzefer.' },
       'ad-lehagdil': { title: 'Bigger?', kind: 'Sex shop ad series', desc: 'From a series of commercials for a sex shop (a small business). Directed and written during my studies at HaBetzefer.' },
       'ad-ani-rotze': { title: 'I’ll Have...', kind: 'Sex shop ad series', desc: 'From a series of commercials for a sex shop (a small business). Directed and written during my studies at HaBetzefer.' }
@@ -366,7 +366,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 @keyframes blink{50%{opacity:0}}
 .hero-grid{width:100%;max-width:var(--max);margin-inline:auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:center;gap:clamp(24px,5vw,88px)}
 .hero h1{font:400 clamp(76px,12.6vw,188px)/.88 var(--display);letter-spacing:-.015em}
-.hero .role{margin-top:20px;font:400 clamp(26px,3.3vw,46px)/1.15 var(--display);color:var(--accent)}
+.hero .role{margin-top:20px;font:400 clamp(26px,3.3vw,46px)/1.15 var(--display);color:var(--accent);text-wrap:balance}
 .hero .line{margin-top:22px;max-width:34ch;text-wrap:pretty;font-size:clamp(17px,1.45vw,20px);line-height:1.6;color:var(--mute)}
 .eye{justify-self:center;width:min(100%,470px);aspect-ratio:1}
 .eye video{width:100%;height:100%;object-fit:contain;mix-blend-mode:lighten}

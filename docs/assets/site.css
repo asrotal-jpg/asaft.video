@@ -1,4 +1,4 @@
-:root{--ink:#f2eee6;--ink-rgb:242,238,230;--mute:#a39e95;--faint:#77726b;--accent:#e8c232;--accent-rgb:232,194,50;--line:rgba(242,238,230,.15)}
+:root{--ink:#eef1f6;--ink-rgb:238,241,246;--mute:#9ca3ad;--faint:#6c737d;--accent:#2b8aff;--accent-rgb:43,138,255;--line:rgba(238,241,246,.15)}
 :root{--black:#000;--rec:#e5483b;--panel:#161616;
 --display:'Secular One','Heebo',sans-serif;--body:'Heebo',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;--tc:'Space Mono',ui-monospace,Menlo,Consolas,monospace;
 --gutter:clamp(18px,4vw,56px);--max:1320px;--bar:68px;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -57,7 +57,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 @keyframes blink{50%{opacity:0}}
 .hero-grid{width:100%;max-width:var(--max);margin-inline:auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:center;gap:clamp(24px,5vw,88px)}
 .hero h1{font:400 clamp(76px,12.6vw,188px)/.88 var(--display);letter-spacing:-.015em}
-.hero .role{margin-top:20px;font:400 clamp(26px,3.3vw,46px)/1.15 var(--display);color:var(--accent)}
+.hero .role{margin-top:20px;font:400 clamp(26px,3.3vw,46px)/1.15 var(--display);color:var(--accent);text-wrap:balance}
 .hero .line{margin-top:22px;max-width:34ch;text-wrap:pretty;font-size:clamp(17px,1.45vw,20px);line-height:1.6;color:var(--mute)}
 .eye{justify-self:center;width:min(100%,470px);aspect-ratio:1}
 .eye video{width:100%;height:100%;object-fit:contain;mix-blend-mode:lighten}
