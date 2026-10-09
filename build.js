@@ -831,6 +831,8 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
     var here = SITE + o.path[LANG];
     return '<!doctype html>\n<html lang="' + L.lang + '" dir="' + L.dir + '">\n<head>\n<meta charset="utf-8">\n' +
       '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n' +
+      /* Asaf doesn't want the site in search results; link previews (WhatsApp etc.) still work */
+      '<meta name="robots" content="noindex">\n' +
       '<title>' + esc(o.title) + '</title>\n' +
       '<meta name="description" content="' + esc(o.desc.replace(/\n/g, ' ')) + '">\n' +
       '<link rel="canonical" href="' + here + '">\n' +
