@@ -197,7 +197,7 @@ function buildSite(themeName) {
       bio: [
         'Hi! I’m Asaf – a student, video editor, creator and artist with a strong pull toward misfit heroes from society’s margins, bombastic moments and a visual flood on screen. All the things that make the audience feel alive.',
         'I can’t remember life without movie theaters. I went for the first time when I was 5, and I haven’t really stopped since. When I first saw Christopher Nolan’s Interstellar on an IMAX screen at 14, I understood the power of cinema – and ever since, I’ve known it’s what I want to do with my life.',
-        'My work gravitates toward flawed but fascinating heroes, rhythmic editing and vulnerable human moments. I love taking simple raw footage and turning it into video that’s engaging, compelling and simply impossible to ignore – whether it’s fiction, documentary or strange video art you can’t take your eyes off.'
+        'My work gravitates toward flawed but fascinating heroes, rhythmic editing and vulnerable human moments. I love taking simple raw footage and turning it into a video that’s engaging, compelling and simply impossible to ignore – whether it’s fiction, documentary or strange video art you can’t take your eyes off.'
       ],
       cv: {
         edu: ['Education', [['B.F.A., Bezalel Academy of Arts and Design', 'Dec 2023 – present', 'Screen-Based Arts Department, video specialization: art, video editing, fiction and documentary directing, image editing, cinematography, dramatic writing.']]],
