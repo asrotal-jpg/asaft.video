@@ -851,6 +851,8 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
       '<meta name="twitter:card" content="' + (o.card || 'summary_large_image') + '">\n' +
       '<meta name="theme-color" content="#000000">\n' +
       '<link rel="icon" href="' + FAVICON + '">\n' +
+      /* Safari history, bookmarks and home screen use this instead of a letter */
+      '<link rel="apple-touch-icon" href="' + o.A + 'media/apple-touch-icon.png">\n' +
       '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
       '<link rel="preconnect" href="https://static.wixstatic.com">\n' +
       '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Secular+One&family=Space+Mono&display=swap">\n' +
