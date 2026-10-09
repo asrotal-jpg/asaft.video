@@ -179,7 +179,9 @@ background:repeating-linear-gradient(90deg,rgba(var(--ink-rgb),.28) 0 1px,transp
 .warn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;border:1px solid var(--accent);border-radius:99px;padding:5px 14px;color:var(--accent);font-size:14px;font-weight:500}
 .warn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
 .title-poster{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:8px;background:var(--panel);box-shadow:0 0 0 1px var(--line),0 40px 90px -30px #000}
-.title-poster::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+/* decorative loops: in iPhone Low Power Mode Safari won't autoplay and draws its own play button; show the still frame instead */
+.eye video::-webkit-media-controls,.title-poster::-webkit-media-controls{display:none!important}
+.eye video::-webkit-media-controls-start-playback-button,.title-poster::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
 .watch{padding-top:clamp(36px,5vw,64px)}
 .screen{position:relative;aspect-ratio:16/9;background:#050505;border-radius:8px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
 .screen>img,.screen iframe,.screen video{position:absolute;inset:0;width:100%;height:100%;border:0}
