@@ -237,7 +237,7 @@ function buildSite(themeName) {
         title: 'Grandma Tales', genre: 'Hybrid documentary', role: 'Director, cinematographer, editor',
         cap: [['12:48', 1], ['Hybrid documentary']],
         about: ['“Grandma Tales” is a personal hybrid documentary that tries to capture my grandmother’s personality and, through the filmmaking itself, fulfill a dream she had long given up on.'],
-        challenges: ['Taking a grip on a huge amount of raw footage in the edit room', 'Cracking the film’s narrative in the edit', 'Directing a non-professional actress']
+        challenges: ['Wrangling a huge amount of raw footage in the edit room', 'Cracking the film’s narrative in the edit', 'Directing a non-professional actress']
       },
       him: {
         noun: 'video', genre: 'Video art', warn: ['nudity', 'flashing lights'], role: 'Director, cinematographer, gaffer, editor',
