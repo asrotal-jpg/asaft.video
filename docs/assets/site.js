@@ -4,6 +4,7 @@
   var reduce = w.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine = w.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var pendingAd = null;
+  var rtl = d.documentElement.dir === 'rtl';
 
   /* links from the earlier version of the site: #/p/slug and #/s/section */
   if (body.getAttribute('data-page') === 'home') {
@@ -37,6 +38,10 @@
     });
   }
 
+  /* the language switch keeps the section the visitor jumped to */
+  var sw = d.querySelector('.lang');
+  if (sw) sw.addEventListener('click', function () { if (/^#[\w-]+$/.test(location.hash)) sw.href = sw.href.split('#')[0] + location.hash; });
+
   /* viewfinder timecode and timeline playhead */
   var tc = d.getElementById('tc'), ph = d.getElementById('ph');
   if (tc && !reduce) {
@@ -54,9 +59,8 @@
     requestAnimationFrame(tick);
   }
 
-  /* rotating head in the viewfinder */
-  var head = d.querySelector('.eye video');
-  if (head && reduce) { head.removeAttribute('autoplay'); head.pause(); }
+  /* looping videos (the head, moving posters) hold still for reduced motion */
+  if (reduce) d.querySelectorAll('video[autoplay]').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
 
   /* hover previews on posters */
   if (fine && !reduce) {
@@ -183,14 +187,17 @@
       if (veil) {
         var g = d.createElement('div');
         g.className = 'gate';
-        g.innerHTML = '<p>פרסומת לחנות מין עם רמיזות מיניות.</p><button type="button" class="btn btn--solid"><span class="tri"></span>להפעלת הסרטון</button>';
-        g.querySelector('button').addEventListener('click', function () { veil.classList.remove('veiled'); show(a); });
+        g.innerHTML = '<p></p><button type="button" class="btn btn--solid"><span class="tri"></span></button>';
+        g.firstChild.textContent = dlg.getAttribute('data-gate');
+        var gb = g.querySelector('button');
+        gb.appendChild(d.createTextNode(dlg.getAttribute('data-play')));
+        gb.addEventListener('click', function () { veil.classList.remove('veiled'); show(a); });
         scr.appendChild(g);
       } else {
         scr.appendChild(ytFrame(a.getAttribute('data-yt'), a.getAttribute('data-title')));
       }
       nav.hidden = list.length < 2;
-      count.textContent = (idx + 1) + ' מתוך ' + list.length;
+      count.textContent = (idx + 1) + ' ' + dlg.getAttribute('data-of') + ' ' + list.length;
       steps[0].disabled = idx === 0;
       steps[1].disabled = idx === list.length - 1;
     };
@@ -206,8 +213,8 @@
     steps[1].addEventListener('click', function () { go(1); });
     d.addEventListener('keydown', function (e) {
       if (!dlg.open) return;
-      if (e.key === 'ArrowRight') go(-1);
-      else if (e.key === 'ArrowLeft') go(1);
+      if (e.key === 'ArrowRight') go(rtl ? -1 : 1);
+      else if (e.key === 'ArrowLeft') go(rtl ? 1 : -1);
     });
     dlg.addEventListener('close', function () { scr.innerHTML = ''; });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
